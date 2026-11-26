@@ -1197,10 +1197,16 @@ async function getLatestPatientHealthData(
 
         pacienteUid,
 
-        data: null,
+        paciente:
+          acceso.paciente,
 
-        message:
-          "El paciente todavía no tiene datos de Health Connect sincronizados.",
+        data: {
+
+          id:
+            documento.id,
+
+          ...documento.data(),
+        },
       });
     }
 
