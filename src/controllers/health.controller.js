@@ -1197,16 +1197,15 @@ async function getLatestPatientHealthData(
 
         pacienteUid,
 
+        // Datos generales del paciente obtenidos desde
+        // usuarios/{pacienteUid}
         paciente:
           acceso.paciente,
 
-        data: {
+        data: null,
 
-          id:
-            documento.id,
-
-          ...documento.data(),
-        },
+        message:
+          "El paciente todavía no tiene datos de Health Connect sincronizados.",
       });
     }
 
@@ -1221,6 +1220,12 @@ async function getLatestPatientHealthData(
 
       pacienteUid,
 
+      // Datos generales del paciente obtenidos desde
+      // usuarios/{pacienteUid}
+      paciente:
+        acceso.paciente,
+
+      // Último registro de Health Connect
       data: {
 
         id:
